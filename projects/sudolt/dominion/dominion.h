@@ -128,4 +128,18 @@ int getWinners(int players[MAX_PLAYERS], struct gameState *state);
 /* Set array position of each player who won (remember ties!) to
    1, others to 0 */
 
+int adventurer_card (struct gameState *state, int handPos, int *bonus, int currentPlayer);
+/* Refactored Adventurer card out of the card effect switch into it's own function */
+
+int council_room_card (struct gameState *state, int handPos, int currentPlayer);
+/* Refactored Council Room card out of the card effect switch into it's own function */
+
+int mine_card (struct gameState *state, int currentPlayer, int choice1, int choice2, int handPos);
+/* Refactored Mine card out of the card effect switch and into it's own function */
+
+int smithy_card (struct gameState *state, int currentPlayer, int handPos); 
+/* Refactored Smithy card out of the card effect switch and into it's own function */
+
+int village_card (struct gameState *state, int currentPlayer, int handPos);
+/* Refactored Village card out of the card effect switch and into it's own function */
 #endif
