@@ -3,14 +3,13 @@
  * Name:    Tim Sudol
  * Class:   CS362 - Winter 2019
  * Date:    27 JAN 2019
- * Program: unittest1.c
+ * Program: unittest2.c
  *
- * This program verifies the function of the smithy card in dominion.c.  
+ * This program verifies the function of the adventure card in dominion.c.  
  *
  * The strategy is to play the card and compare hand sizes before and after the
- * card was played.  The card has you draw three cards and discard one card so
- * the change in hand size after playing the card is +2, and the deck size by
- * +4.  That will be the test.
+ * card was played.  The card has you draw cards until two treasure cards are
+ * found, resulting in a change in hand size of +2. That will be the test.
  *
  ******************************************************************************/
 
@@ -56,7 +55,7 @@ int main()
    struct gameState state;
 
    // Set up the variables used to call cardEffect
-   int card = smithy;
+   int card = adventurer;
    int choice1 = 0;
    int choice2 = 0;
    int choice3 = 0;
@@ -67,41 +66,33 @@ int main()
    int test = 0;     // See if cardEffect worked
    int numCardsHandBefore = 0;
    int numCardsHandAfter = 0;
-   int numCardsDeckBefore = 0;
-   int numCardsDeckAfter = 0;
 
-   printf("Testing smithy card\n");
+   printf("Testing adventurer card\n");
 
    // Inititalize the game to get everything set up
    initializeGame(numPlayers, kc, randomSeed, &state);
 
    numCardsHandBefore = state.handCount[0];
-   numCardsDeckBefore = state.deckCount[0];
 
    // Play the card and see what happens!
    test = cardEffect(card, choice1, choice2, choice3, &state, handPos, &bonus);
 
-   printf("Testing if smithy played correctly:\t");
+   printf("Testing if adventurer played correctly:\t");
    numBugs += comp(test == 0);
 
    numCardsHandAfter = state.handCount[0];
-   numCardsDeckAfter = state.deckCount[0];
 
    printf("Number of cards in hand before: %d\t and after: %d\t", 
             numCardsHandBefore, numCardsHandAfter);
    numBugs += comp(numCardsHandBefore + 2 == numCardsHandAfter);
 
-   printf("Number of cards in deck before: %d\t and after: %d\t", 
-            numCardsDeckBefore, numCardsDeckAfter);
-   numBugs += comp(numCardsDeckBefore - 3 == numCardsDeckAfter);
-
    if (numBugs == 0)
    {
-      printf("No bugs were found in smithy card!\n");
+      printf("No bugs were found in adventurer card!\n");
    }
    else
    {
-      printf("Found %d bugs in smithy card!\n", numBugs);
+      printf("Found %d bugs in adventurer card!\n", numBugs);
    }
 
    return 0;

@@ -1,0 +1,35 @@
+        -: 1333:// Adventurer is first
+        1: 1334:int adventurer_card(struct gameState *state, int handPos, int *bonus, int currentPlayer)
+        -: 1335:{
+        -: 1336:   int temphand[MAX_HAND];
+        1: 1337:   int drawntreasure = 0;
+        1: 1338:   int z = 0;
+        -: 1339:   int cardDrawn;
+        -: 1340:
+        -: 1341:   //while(drawntreasure < 2)
+        6: 1342:   while (drawntreasure < 3)
+        -: 1343:   {
+        4: 1344:      if (state->deckCount[currentPlayer] < 1)
+        -: 1345:      {//if the deck is empty we need to shuffle discard and add to deck
+    #####: 1346:         shuffle(currentPlayer, state);
+        -: 1347:      }
+        4: 1348:      drawCard(currentPlayer, state);
+        4: 1349:      cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer] - 1];//top card of hand is most recently drawn card.
+        4: 1350:      if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+        -: 1351:      {
+        3: 1352:         drawntreasure++;
+        -: 1353:      }
+        -: 1354:      else
+        -: 1355:      {
+        1: 1356:         temphand[z] = cardDrawn;
+        1: 1357:         state->handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).
+        1: 1358:         z++;
+        -: 1359:      }
+        -: 1360:   }
+        3: 1361:   while (z - 1 >= 0)
+        -: 1362:   {
+        1: 1363:      state->discard[currentPlayer][state->discardCount[currentPlayer]++] = temphand[z - 1]; // discard all cards in play that have been drawn
+        1: 1364:      z = z - 1;
+        -: 1365:   }
+        1: 1366:   return 0;
+        -: 1367:}
