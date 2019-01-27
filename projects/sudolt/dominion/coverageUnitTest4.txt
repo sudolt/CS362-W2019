@@ -1,0 +1,16 @@
+        2:   23:int* kingdomCards(int k1, int k2, int k3, int k4, int k5, int k6, int k7,
+        -:   24:   int k8, int k9, int k10)
+        -:   25:{
+        2:   26:   int* k = malloc(10 * sizeof(int));
+        2:   27:   k[0] = k1;
+        2:   28:   k[1] = k2;
+        2:   29:   k[2] = k3;
+        2:   30:   k[3] = k4;
+        2:   31:   k[4] = k5;
+        2:   32:   k[5] = k6;
+        2:   33:   k[6] = k7;
+        2:   34:   k[7] = k8;
+        2:   35:   k[8] = k9;
+        2:   36:   k[9] = k10;
+        2:   37:   return k;
+        -:   38:}
