@@ -1,0 +1,4 @@
+        9:  369:int whoseTurn(struct gameState *state)
+        -:  370:{
+        9:  371:   return state->whoseTurn;
+        -:  372:}

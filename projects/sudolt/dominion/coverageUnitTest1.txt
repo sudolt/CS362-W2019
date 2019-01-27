@@ -1,0 +1,62 @@
+       28:  622:int getCost(int cardNumber)
+        -:  623:{
+       28:  624:   switch (cardNumber)
+        -:  625:   {
+        -:  626:      case curse:
+        1:  627:         return 0;
+        -:  628:      case estate:
+        1:  629:         return 2;
+        -:  630:      case duchy:
+        1:  631:         return 5;
+        -:  632:      case province:
+        1:  633:         return 8;
+        -:  634:      case copper:
+        1:  635:         return 0;
+        -:  636:      case silver:
+        1:  637:         return 3;
+        -:  638:      case gold:
+        1:  639:         return 6;
+        -:  640:      case adventurer:
+        1:  641:         return 6;
+        -:  642:      case council_room:
+        1:  643:         return 5;
+        -:  644:      case feast:
+        1:  645:         return 4;
+        -:  646:      case gardens:
+        1:  647:         return 4;
+        -:  648:      case mine:
+        1:  649:         return 5;
+        -:  650:      case remodel:
+        1:  651:         return 4;
+        -:  652:      case smithy:
+        1:  653:         return 4;
+        -:  654:      case village:
+        1:  655:         return 3;
+        -:  656:      case baron:
+        1:  657:         return 4;
+        -:  658:      case great_hall:
+        1:  659:         return 3;
+        -:  660:      case minion:
+        1:  661:         return 5;
+        -:  662:      case steward:
+        1:  663:         return 3;
+        -:  664:      case tribute:
+        1:  665:         return 5;
+        -:  666:      case ambassador:
+        1:  667:         return 3;
+        -:  668:      case cutpurse:
+        1:  669:         return 4;
+        -:  670:      case embargo:
+        1:  671:         return 2;
+        -:  672:      case outpost:
+        1:  673:         return 5;
+        -:  674:      case salvager:
+        1:  675:         return 4;
+        -:  676:      case sea_hag:
+        1:  677:         return 4;
+        -:  678:      case treasure_map:
+        1:  679:         return 4;
+        -:  680:   }
+        -:  681:
+        1:  682:   return -1;
+        -:  683:}

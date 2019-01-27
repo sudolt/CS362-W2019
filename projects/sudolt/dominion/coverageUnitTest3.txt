@@ -1,0 +1,29 @@
+       13: 1299:int updateCoins(int player, struct gameState *state, int bonus)
+        -: 1300:{
+        -: 1301:   int i;
+        -: 1302:
+        -: 1303:   //reset coin count
+       13: 1304:   state->coins = 0;
+        -: 1305:
+        -: 1306:   //add coins for each Treasure card in player's hand
+      143: 1307:   for (i = 0; i < state->handCount[player]; i++)
+        -: 1308:   {
+      130: 1309:      if (state->hand[player][i] == copper)
+        -: 1310:      {
+       16: 1311:         state->coins += 1;
+        -: 1312:      }
+      114: 1313:      else if (state->hand[player][i] == silver)
+        -: 1314:      {
+        9: 1315:         state->coins += 2;
+        -: 1316:      }
+      105: 1317:      else if (state->hand[player][i] == gold)
+        -: 1318:      {
+        8: 1319:         state->coins += 3;
+        -: 1320:      }
+        -: 1321:   }
+        -: 1322:
+        -: 1323:   //add bonus
+       13: 1324:   state->coins += bonus;
+        -: 1325:
+       13: 1326:   return 0;
+        -: 1327:}
