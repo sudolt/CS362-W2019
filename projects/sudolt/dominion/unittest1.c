@@ -51,12 +51,12 @@ int main()
    int expectedCost;
    printf("Testing getCost\n");
 
-   //expectedCost = 3;   // Introduced bug to ensure the test was working correctly
+   // expectedCost = 3;   // Introduced bug to ensure the test was working correctly
    expectedCost = 0;
    printf("Testing curse, should be cost %d\n", expectedCost);
    numBugs += comp(getCost(0) == expectedCost);
 
-   //expectedCost = 8;   // Introduced bug to ensure the test was working correctly
+   // expectedCost = 8;   // Introduced bug to ensure the test was working correctly
    expectedCost = 2;
    printf("Testing estate, should be cost %d\n", expectedCost);
    numBugs += comp(getCost(1) == expectedCost);
