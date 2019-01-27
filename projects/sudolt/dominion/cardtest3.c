@@ -3,7 +3,7 @@
  * Name:    Tim Sudol
  * Class:   CS362 - Winter 2019
  * Date:    27 JAN 2019
- * Program: unittest3.c
+ * Program: cardtest3.c
  *
  * This program verifies the function of the council room card in dominion.c.  
  *

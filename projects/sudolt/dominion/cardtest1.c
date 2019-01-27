@@ -3,7 +3,7 @@
  * Name:    Tim Sudol
  * Class:   CS362 - Winter 2019
  * Date:    27 JAN 2019
- * Program: unittest1.c
+ * Program: cardtest1.c
  *
  * This program verifies the function of the smithy card in dominion.c.  
  *

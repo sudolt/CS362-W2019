@@ -3,13 +3,14 @@
  * Name:    Tim Sudol
  * Class:   CS362 - Winter 2019
  * Date:    27 JAN 2019
- * Program: cardtest2.c
+ * Program: cardtest4.c
  *
- * This program verifies the function of the adventure card in dominion.c.  
+ * This program verifies the function of the village card in dominion.c.  
  *
  * The strategy is to play the card and compare hand sizes before and after the
- * card was played.  The card has you draw cards until two treasure cards are
- * found, resulting in a change in hand size of +2. That will be the test.
+ * card was played.  The card draws a new card (increasing the hand size), but 
+ * also discards a card, so the hand size should stay the same.  The number of 
+ * actions available will increase by two, so that will also be tested.
  *
  ******************************************************************************/
 
@@ -55,7 +56,7 @@ int main()
    struct gameState state;
 
    // Set up the variables used to call cardEffect
-   int card = adventurer;
+   int card = village;
    int choice1 = 0;
    int choice2 = 0;
    int choice3 = 0;
@@ -64,35 +65,46 @@ int main()
 
    // Testing variables
    int test = 0;     // See if cardEffect worked
-   int numCardsHandBefore = 0;
-   int numCardsHandAfter = 0;
+   int numCardsHandBefore;
+   int numCardsHandAfter;
+   int numActionsBefore = 0;
+   int numActionsAfter = 0;
 
-   printf("Testing adventurer card\n");
+   printf("Testing village card\n");
 
    // Inititalize the game to get everything set up
    initializeGame(numPlayers, kc, randomSeed, &state);
 
+   
    numCardsHandBefore = state.handCount[0];
+
+   numActionsBefore = state.numActions;
 
    // Play the card and see what happens!
    test = cardEffect(card, choice1, choice2, choice3, &state, handPos, &bonus);
 
-   printf("Testing if adventurer played correctly:\t");
+   numActionsAfter = state.numActions;
+
+   printf("Testing if village played correctly:\t");
    numBugs += comp(test == 0);
 
    numCardsHandAfter = state.handCount[0];
 
-   printf("Number of cards in hand before: %d\t and after: %d\t", 
-            numCardsHandBefore, numCardsHandAfter);
-   numBugs += comp(numCardsHandBefore + 2 == numCardsHandAfter);
+   printf("Testing the number of cards in the player's hand\n");
+   printf("Before: %d\t After: %d\t", numCardsHandBefore, numCardsHandAfter);
+   numBugs += comp(numCardsHandBefore == numCardsHandAfter);
+
+   printf("Testing number of actions before: %d\t after: %d\t",
+             numActionsBefore, numActionsAfter);
+   numBugs += comp(numActionsBefore + 2 == numActionsAfter);
 
    if (numBugs == 0)
    {
-      printf("No bugs were found in adventurer card!\n");
+      printf("No bugs were found in village card!\n");
    }
    else
    {
-      printf("Found %d bugs in adventurer card!\n", numBugs);
+      printf("Found %d bugs in village card!\n", numBugs);
    }
 
    return 0;

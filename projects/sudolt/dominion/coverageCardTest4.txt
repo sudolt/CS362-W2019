@@ -1,0 +1,14 @@
+        -: 1452:// Refactored Village
+        1: 1453:int village_card(struct gameState *state, int currentPlayer, int handPos)
+        -: 1454:{
+        -: 1455:   //+1 Card
+        1: 1456:   drawCard(currentPlayer, state);
+        -: 1457:
+        -: 1458:   //+2 Actions
+        1: 1459:   state->numActions = state->numActions + 2;
+        -: 1460:
+        -: 1461:   //discard played card from hand
+        1: 1462:   discardCard(handPos, currentPlayer, state, 0);
+        -: 1463:
+        1: 1464:   return 0;
+        -: 1465:}
