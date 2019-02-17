@@ -60,6 +60,15 @@ cardtest3: cardtest3.c dominion.o rngs.o
 cardtest4: cardtest4.c dominion.o rngs.o
 	gcc -o cardtest4 cardtest4.c -g dominion.o rngs.o $(CFLAGS)
 
+randomtestcard1: randomtestcard1.c dominion.o rngs.o
+	gcc -o randomtestcard1 randomtestcard1.c -g dominion.o rngs.o $(CFLAGS)
+
+randomtestcard2: randomtestcard2.c dominion.o rngs.o
+	gcc -o randomtestcard2 randomtestcard2.c -g dominion.o rngs.o $(CFLAGS)
+
+randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
+	gcc -o randomtestadventurer randomtestadventurer.c -g dominion.o rngs.o $(CFLAGS)
+
 unittestresults: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4
 	./unittest1 > unittestresults.out
 	echo -e "\n--------------------------------------------------------------\n" >> unittestresults.out
@@ -79,6 +88,17 @@ unittestresults: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 car
 	echo -e "\n--------------------------------------------------------------\n" >> unittestresults.out
 	gcov dominion.c
 	cat dominion.c.gcov >> unittestresults.out
+
+randomtestresults: randomtestcard1 randomtestcard2 randomtestadventurer
+	./randomtestcard1 > randomtestcard1.out
+	gcov -f dominion | grep -A 2 smithy >> randomtestcard1.out
+	cat dominion.c.gcov >> randomtestcard1.out
+	./randomtestcard2 > randomtestcard2.out
+	gcov -f dominion | grep -A 2 council >> randomtestcard2.out
+	cat dominion.c.gcov >> randomtestcard2.out
+	./randomtestadventurer > randomtestadventurer.out
+	gcov -f dominion | grep -A 2 adventurer >> randomtestadventurer.out
+	cat dominion.c.gcov >> randomtestadventurer.out
 
 all: playdom player 
 
