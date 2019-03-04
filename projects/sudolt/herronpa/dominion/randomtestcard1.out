@@ -1,0 +1,7 @@
+Random testing of smithy card
+No errors returned from cardEffect for smithy card!
+5000 plays had good cardEffect returns!
+No bugs were found in hand count for smithy card!
+5000 plays had good hand counts!
+No bugs were found in deck count for smithy card!
+5000 plays had good deck counts!
