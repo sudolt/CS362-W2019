@@ -77,11 +77,11 @@ int main()
 
    if (numBugs == 0)
    {
-      printf("No bugs were found in updateCoins!\n");
+      printf("No bugs were found in kingdomCards!\n");
    }
    else
    {
-      printf("Found %d bugs in updateCoins!\n", numBugs);
+      printf("Found %d bugs in kingdomCards!\n", numBugs);
    }
 
    return 0;

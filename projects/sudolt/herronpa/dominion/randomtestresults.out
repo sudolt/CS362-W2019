@@ -8,6 +8,33 @@ No errors returned from cardEffect for smithy card!
 Function 'playSmith'
 Lines executed:100.00% of 5
 
+
+--------------------------------------------------------------
+
+Testing council room card
+5000 hands had issues with own number of cards
+0 hands had no issues with own number of cards
+0 hands had issues with other players number of cards
+5000 hands had no with other players number of cards
+0 hands had issues with number of buys
+5000 hands had no issues with number of buys
+0 hands had issues with council_card function
+5000 hands had no issues with council_card function
+Function 'playCouncil'
+Lines executed:100.00% of 9
+
+
+--------------------------------------------------------------
+
+Testing adventurer card
+4600 hands had issues in adventurer card!
+400 number of hands worked correctly!
+Function 'playAdventurer'
+Lines executed:100.00% of 17
+
+
+--------------------------------------------------------------
+
         -:    0:Source:dominion.c
         -:    0:Graph:dominion.gcno
         -:    0:Data:dominion.gcda

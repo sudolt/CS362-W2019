@@ -1,12 +1,14 @@
-Random testing of smithy card
-No errors returned from cardEffect for smithy card!
-5000 plays had good cardEffect returns!
-5000 plays had bugs in hand count of smithy card!
-0 plays had good hand counts!
-5000 plays had bugs in deck count of smithy card!
-0 plays had good deck counts!
-Function 'playSmith'
-Lines executed:100.00% of 5
+Testing council room card
+5000 hands had issues with own number of cards
+0 hands had no issues with own number of cards
+0 hands had issues with other players number of cards
+5000 hands had no with other players number of cards
+0 hands had issues with number of buys
+5000 hands had no issues with number of buys
+0 hands had issues with council_card function
+5000 hands had no issues with council_card function
+Function 'playCouncil'
+Lines executed:100.00% of 9
 
         -:    0:Source:dominion.c
         -:    0:Graph:dominion.gcno

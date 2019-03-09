@@ -71,34 +71,58 @@ randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
 
 unittestresults: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4
 	./unittest1 > unittestresults.out
+	echo -e "\n Coverage results:\n" >> unittestresults.out
+	gcov -f dominion | grep -A 2 getCost >> unittestresults.out
 	echo -e "\n--------------------------------------------------------------\n" >> unittestresults.out
 	./unittest2 >> unittestresults.out
+	echo -e "\n Coverage results:\n" >> unittestresults.out
+	gcov -f dominion | grep -A 2 whoseTurn >> unittestresults.out
 	echo -e "\n--------------------------------------------------------------\n" >> unittestresults.out
 	./unittest3 >> unittestresults.out
+	echo -e "\n Coverage results:\n" >> unittestresults.out
+	gcov -f dominion | grep -A 2 updateCoins >> unittestresults.out
 	echo -e "\n--------------------------------------------------------------\n" >> unittestresults.out
 	./unittest4 >> unittestresults.out
+	echo -e "\n Coverage results:\n" >> unittestresults.out
+	gcov -f dominion | grep -A 2 kingdomCards >> unittestresults.out
 	echo -e "\n--------------------------------------------------------------\n" >> unittestresults.out
 	./cardtest1 >> unittestresults.out
+	echo -e "\n Coverage results:\n" >> unittestresults.out
+	gcov -f dominion | grep -A 2 playSmith >> unittestresults.out
 	echo -e "\n--------------------------------------------------------------\n" >> unittestresults.out
 	./cardtest2 >> unittestresults.out
+	echo -e "\n Coverage results:\n" >> unittestresults.out
+	gcov -f dominion | grep -A 2 playAdventurer >> unittestresults.out
 	echo -e "\n--------------------------------------------------------------\n" >> unittestresults.out
 	./cardtest3 >> unittestresults.out
+	echo -e "\n Coverage results:\n" >> unittestresults.out
+	gcov -f dominion | grep -A 2 playCouncil >> unittestresults.out
 	echo -e "\n--------------------------------------------------------------\n" >> unittestresults.out
 	./cardtest4 >> unittestresults.out
+	echo -e "\n Coverage results:\n" >> unittestresults.out
+	gcov -f dominion | grep -A 2 playVillage >> unittestresults.out
 	echo -e "\n--------------------------------------------------------------\n" >> unittestresults.out
-	gcov dominion.c
+	gcov -f dominion.c
 	cat dominion.c.gcov >> unittestresults.out
 
 randomtestresults: randomtestcard1 randomtestcard2 randomtestadventurer
 	./randomtestcard1 > randomtestcard1.out
-	gcov -f dominion | grep -A 2 smithy >> randomtestcard1.out
-	cat dominion.c.gcov >> randomtestcard1.out
+	gcov -f dominion | grep -A 2 playSmith >> randomtestcard1.out
 	./randomtestcard2 > randomtestcard2.out
-	gcov -f dominion | grep -A 2 council >> randomtestcard2.out
-	cat dominion.c.gcov >> randomtestcard2.out
+	gcov -f dominion | grep -A 2 playCouncil >> randomtestcard2.out
 	./randomtestadventurer > randomtestadventurer.out
-	gcov -f dominion | grep -A 2 adventurer >> randomtestadventurer.out
+	gcov -f dominion | grep -A 2 playAdventurer >> randomtestadventurer.out
+	cat randomtestcard1.out > randomtestresults.out
+	echo -e "\n--------------------------------------------------------------\n" >> randomtestresults.out
+	cat randomtestcard2.out >> randomtestresults.out
+	echo -e "\n--------------------------------------------------------------\n" >> randomtestresults.out
+	cat randomtestadventurer.out >> randomtestresults.out
+	echo -e "\n--------------------------------------------------------------\n" >> randomtestresults.out
+	cat dominion.c.gcov >> randomtestcard1.out
+	cat dominion.c.gcov >> randomtestcard2.out
 	cat dominion.c.gcov >> randomtestadventurer.out
+	cat dominion.c.gcov >> randomtestresults.out
+
 
 all: playdom player 
 
